@@ -1,0 +1,34 @@
+<html>
+<head>
+<script type = "text/javascript">
+	function toCode(thisform){
+		var out = document.getElementById("inCode").value;
+		var temp = out.replace("<","&#60");
+		
+		while(temp != out)
+		{
+			out = temp;
+			temp = out.replace("<","&#60");
+			temp = temp.replace(">","&#62");
+		}
+		
+		document.getElementById("Code").innerHTML=out;
+	}
+</script>
+</head>
+
+<body>
+
+
+<form onsubmit = "toCode(this)">
+	<textarea id = "inCode" name="code" rows="4" cols="48" wrap=virtual onkeyup="toCode(this.value)">Enter code here</textarea>
+</form>
+
+
+<code id = "Code">Blah</code>
+
+</body>
+
+
+
+</html>
